@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>do</title>
+</head>
+
+<body>
+    <script>
+        const ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+            const teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+            const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+            const form = document.getElementById('numberForm');
+            const resultDiv = document.getElementById('result');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const numberStr = document.getElementById('numberInput').value.trim();
+                const number = parseInt(numberStr);
+
+                if (isNaN(number)) {
+                    resultDiv.textContent = 'Not a number';
+                } else if (number < 0 || number > 999) {
+                    resultDiv.textContent = 'Out of range';
+                } else {
+                    const numberInWords = convertNumberToWords(number);
+                    resultDiv.textContent = `${number} in words is "${numberInWords}"`;
+                }
+            });
+
+            function convertNumberToWords(number) {
+                if (number === 0) return 'zero';
+
+                let words = '';
+
+                if (number >= 100) {
+                    words += ones[Math.floor(number / 100)] + ' hundred ';
+                    number %= 100;
+                }
+
+                if (number >= 20) {
+                    words += tens[Math.floor(number / 10)];
+                    if (number % 10 !== 0) {
+                        words += ' ' + ones[number % 10];
+                    }
+                } else if (number >= 10) {
+                    words += teens[number - 10];
+                } else if (number > 0) {
+                    words += ones[number];
+                }
+
+                return words.trim();
+            }
+    </script>
+</body>
+
+</html>

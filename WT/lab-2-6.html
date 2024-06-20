@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>do</title>
+</head>
+
+<body>
+    <script>
+        let a = parseInt(prompt("enter number"));
+        let unit= ['zero','one','two', 'three','four', 'five','six', 'seven','eight', 'nine'];
+        let teens = ['ten','eleven','twelve','thirteen', 'fourteen',' fifteen', 'sixteen', 'seventeen', 'eighteen' ,'ninteen'];
+        let tens =  ['twenty', 'thirty', 'fourty', 'fifty', 'sixty', ' seventy', 'eighty', 'ninty'];
+        if(n>=100){
+            let hundred = Math.floor(n/100);
+            let rem = n%100;
+            console.log(unit[hundred]+" hundred");
+            if(rem>0){
+                console.log(unit[rem]);
+            }
+        }
+        else if(n>=10){
+            let ten = Math.floor(n/10);
+          document.write(unit[hundred+"hundred"]);
+          n=n%10;
+            
+        }
+        else if (n>=20){
+            let ten = Math.floor(n/10);
+            document.write()
+            n = n%10;
+           
+        }
+    </script>
+</body>
+
+</html>
