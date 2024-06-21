@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+let hcf;
+var n1 = prompt('Enter a first positive integer: ');
+var n2 = prompt('Enter a second positive integer: ');
+
+for (let i = 1; i <= n1 && i <= n2; i++) {
+
+    if( n1 % i == 0 && n2 % i == 0) {
+        hcf = i;
+    }
+}
+
+document.write(`HCF of ${n1} and ${n2} is ${hcf}.`);
+    </script>
+</body>
+</html>
