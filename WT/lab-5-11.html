@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+    <style>
+        table{
+            border: 1px solid black;
+            margin-left: auto; 
+			margin-right: auto; 
+            border-collapse: collapse;
+        }
+        input[type="button"]{
+            width: 100%;
+            padding: 20px 40px; 
+            background-color: rgb(53, 148, 177); 
+            color: white; 
+            font-size: 40px;
+            font-weight: bold; 
+        
+			border-radius: 10px; 
+            border-collapse: collapse;
+        }
+        input[type="text"] { 
+			padding: 20px 30px; 
+			font-size: 24px; 
+			font-weight: bold; 
+			 
+			
+			/* border: 2px solid black;  */
+            /* border-radius: 5px;  */
+		} 
+        #result{
+            border: 10px;
+            text-align: right;
+        }
+        .aa{
+            
+            border: 2px solid rgb(31, 28, 28);
+            border-radius: rem;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="aa" colspan="3">
+                <input type="text" id="result">
+            </td>
+            <td><input type="button" value="c"  onclick="clr()"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="entry(value)" ></td>
+            <td><input type="button" value="2" onclick="entry(value)"></td>
+            <td><input type="button" value="3" onclick="entry(value)"></td>
+            <td><input type="button" value="/" onclick="entry(value)"></td>
+         </tr>
+         <tr>
+            <td><input type="button" value="4" onclick="entry(value)"></td>
+            <td><input type="button" value="5" onclick="entry(value)"></td>
+            <td><input type="button" value="6" onclick="entry(value)"></td>
+            <td><input type="button" value="+" onclick="entry(value)"></td>
+         </tr>
+         <tr>
+            <td><input type="button" value="7" onclick="entry(value)"></td>
+            <td><input type="button" value="8" onclick="entry(value)"></td>
+            <td><input type="button" value="9" onclick="entry(value)"></td>
+            <td><input type="button" value="-" onclick="entry(value)"></td>
+         </tr>
+         <tr>
+            <td><input type="button" value="0" onclick="entry(value)"></td>
+            <td><input type="button" value="." onclick="entry(value)"></td>
+            <td><input type="button" value="=" onclick="eqls()"></td>
+            <td><input type="button" value="+" onclick="entry(value)"></td>
+         </tr>
+    </table>
+    <script>
+ function entry(value){
+    document.getElementById("result").value += value;
+ }
+ function clr(){
+    document.getElementById("result").value = "";
+  
+ }
+ function eqls(){
+     let a=  document.getElementById("result");
+     eval(document.getElementById(a));
+ }
+    </script>
+</body>
+</html>
