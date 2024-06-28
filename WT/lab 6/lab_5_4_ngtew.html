@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Registration Form</title>
+<style>
+    /* Basic styling for demonstration */
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<form onsubmit="return validateForm()">
+    <h2>User Registration</h2>
+    <label for="username">Username (minimum 8 characters):</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password (8-12 characters, 1 digit, 1 special character):</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="repeatPassword">Repeat Password:</label>
+    <input type="password" id="repeatPassword" name="repeatPassword" required>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <label for="enrollment">Enrollment (11 digits):</label>
+    <input type="text" id="enrollment" name="enrollment" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="submit" value="Register">
+</form>
+
+<script>
+function validateForm() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var repeatPassword = document.getElementById('repeatPassword').value;
+    var dob = document.getElementById('dob').value; // Date of birth
+    var enrollment = document.getElementById('enrollment').value;
+    var email = document.getElementById('email').value;
+
+    // Regular expressions for validation
+    var passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,12}$/;
+    var enrollmentRegex = /^\d{11}$/;
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Validate username
+    if (username.length < 8) {
+        alert('Username must be at least 8 characters long.');
+        return false;
+    }
+
+    // Validate password
+    if (!passwordRegex.test(password)) {
+        alert('Password must be between 8 to 12 characters long and contain at least 1 digit and 1 special character.');
+        return false;
+    }
+
+    // Check if password and repeat password match
+    if (password !== repeatPassword) {
+        alert('Password and repeat password do not match.');
+        return false;
+    }
+
+    // Validate age based on date of birth
+    var today = new Date();
+    var birthDate = new Date(dob);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    if (age <= 18) {
+        alert('You must be over 18 years old to register.');
+        return false;
+    }
+
+    // Validate enrollment
+    if (!enrollmentRegex.test(enrollment)) {
+        alert('Enrollment must be exactly 11 digits long.');
+        return false;
+    }
+
+    // Validate email
+    if (!emailRegex.test(email)) {
+        alert('Invalid email format.');
+        return false;
+    }
+
+    // All validations passed
+    alert('Registration successful!');
+    return true;
+}
+</script>
+
+</body>
+</html>
