@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>lab_6_4</title>
+    <style>
+        .backgroundcolour{
+            background-color: rgb(227, 234, 234);
+            height: 1000px;
+            width: 1000px
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="backgroundcolour" id="rd">
+        <h1 onmouseover="ylw()" onmouseout="blk()" id="hd" style="align-content: center;">
+            headingggggg
+        </h1>
+        <div>
+            <button onclick="rd()"  style="margin-left: 300px;margin-top: 200px;" >click me for red</button></div>
+            <button onclick="grn() " style="margin-left: 300px;">click me for green</button>
+            <button onclick="time() " style="margin-left: 300px;">time</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        function ylw(){
+           document.getElementById("hd").style.color= "yellow";
+        }
+        function blk(){
+           document.getElementById("hd").style.color= "black";
+        }
+        function rd(){
+            document.getElementById("rd").style.backgroundColor= "red";
+        }
+        function grn(){
+            document.getElementById("rd").style.backgroundColor= "green";
+        }
+        function time(){
+            var d = new Date();
+            var s = d.getSeconds();
+            var m = d.getMinutes();
+            var h = d.getHours();
+            alert(h + ":" + m + ":" + s);
+            
+}
+
+     
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>lab_6_1</title>
+    <style>
+        .backgroundcolour{
+            background-color: aqua;
+            height: 500px;
+            width: 1000px
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="backgroundcolour" id="xyz" >
+        <div class="asd" >
+            <button onclick="start()" style="margin-left: 300px;margin-top: 200px;" >click me for change colour</button></div>
+            <button onclick="stop() " style="margin-left: 300px;">stop</button>
+        </div>
+    </div>
+    <script>
+        function bg(){
+          var a = Math.floor(Math.random()*255)
+          var b = Math.floor(Math.random()*255)
+          var c = Math.floor(Math.random()*255)
+            document.getElementById("xyz").style.backgroundColor= `rgb(${a},${b},${c})`;
+        }
+
+        function start(){
+            x = setInterval(bg,100);
+        }
+
+        function stop(){
+            clearInterval(x);
+        }
+
+
+    </script>
+</body>
+</html>
