@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>validation</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <fieldset>
+        <form>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="Username" class="form-control" id="Username" aria-describedby="emailHelp" placeholder="Username">
+          
+          </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="text" class="form-control" id="emails" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+        
+            <div class="form-group">
+                <label for="exampleInputPassword2"> re-Password</label>
+                <input type="re-password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="eno">Enrolment- </label>
+                <input type="eno" class="form-control" id="exampleInputPassword1" placeholder="enroll number">
+              </div>
+            <button type="submit" onclick="check()" class="btn btn-primary">Submit</button>
+        
+          </form>
+          </fieldset>
+         <script>
+          let pattern1 = "^[\\w_\.]*[\\w]\@[\\w]\.+[\\w]{2,3}$"
+          let regexp = new RegExp(pattern1);
+          let e = document.getElementById("emails");
+          let pattern2 =
+          
+          
+          
+          
+          
+          
+          function check(){
+            if(regexp.test(e.value)){
+              alert("valid");
+            }
+            else{
+              alert("invalid");
+            }
+          }
+
+         </script>
+    </body>
+</html>

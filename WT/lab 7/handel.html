@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="click(event)">Click me</button>
+    <script>
+        document.onmousedown = click
+        function click(event){
+            if(event.button==0){
+                alert("You clicked the left button");
+            }
+            else if(event.button==2){
+                alert("You clicked the right button");
+            }
+        } 
+    </script>
+</body>
+</html>

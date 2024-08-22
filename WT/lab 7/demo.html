@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+        }
+        #square {
+            width: 200px;
+            height: 200px;
+            background-color: #333;
+            border-radius: 50%;
+            transition: transform 0.5s;
+        }
+        #square:hover {
+            transform: scale(1.1);
+        }
+        #circle {
+            width: 200px;
+            height: 200px;
+            background-color: #333;
+            border-radius: 50%;
+            transition: transform 0.5s;
+        }
+        #circle:hover {
+            transform: scale(1.1);
+        }
+        </style>
+</head>
+<body>
+    <div id="main">
+        <div id="square"></div>
+        <div id="circle"></div>
+    </div>
+    <script>
+        const square = document.getElementById('square');
+        const circle = document.getElementById('circle');
+        
+        square.addEventListener('click', () => {
+            square.style.backgroundColor = getRandomColor();
+        });
+        
+        circle.addEventListener('click', () => {
+            circle.style.backgroundColor = getRandomColor();
+        });
+        
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }  
+        </script>
+</body>
+</html>
